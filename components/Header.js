@@ -10,7 +10,7 @@ const Header = ({open}) => {
                     <img src='/img/image-gallery.png' alt="logo"/>
                 </a>
             </Link>
-            <Link href="login">
+            <Link href="session">
                 <a className="login">
                     <button className="login_button"></button>
                 </a>

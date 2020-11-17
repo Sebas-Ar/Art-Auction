@@ -28,7 +28,6 @@ const Layout = ({children}) => {
             <style jsx>{`
                 
                 .container {
-                    background: red;
                     margin: 90px 100px 0 100px;
                 }
 
