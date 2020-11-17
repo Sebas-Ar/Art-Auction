@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Header'
 import Head from "next/head";
-import css from "../public/styles/styles.js"
 import Nav from './Nav';
 
 const Layout = ({children}) => {
@@ -24,7 +23,6 @@ const Layout = ({children}) => {
             <Header open={open}/>
             <Nav nav={nav} close={close}/>
             {children}
-            <style jsx global>{css}</style>
             <style jsx>{`
                 
                 .container {

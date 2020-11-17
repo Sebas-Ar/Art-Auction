@@ -5,9 +5,8 @@ import bcrypt from "bcryptjs"
 const handler = async (req, res) => {
 
   if (req.method === 'POST') {
-
-    const {password, email, name, birthDay, type} = req.body
-
+    
+    const {password, email, name, lastName, type} = req.body
     console.log(req.body)
     try {
       
@@ -17,14 +16,13 @@ const handler = async (req, res) => {
       await req.db.collection(type).insertOne({
         email,
         password: hashedPassword,
-        name,
-        birthDay,
+        name: name + ' ' + lastName,
         type,
         arts: []
       })
     
       res.statusCode = 200
-      res.json({ name: 'John Doe' })
+      res.json({ state: 'ok', message: "usuario creado" })
 
     } catch (error) {
       

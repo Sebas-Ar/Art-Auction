@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config()
 
 const { MONGODB_HOTS, MONGODB_DATABASE } = process.env
-const MONGODB_URI = `mongodb://${MONGODB_HOTS}/${MONGODB_DATABASE}`
+const MONGODB_URI = "mongodb+srv://sebas:1234@art-auction.unvaz.mongodb.net/art-database?retryWrites=true&w=majority"
 
 const client = new MongoClient(MONGODB_URI, {
     useUnifiedTopology: true,
