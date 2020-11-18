@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import Login from '../components/Login'
 import Signup from '../components/Signup'
 
@@ -19,11 +20,13 @@ const login = () => {
     return (
         <div className="container">
             <section>
+                <Link href="/">
+                    <a className="return"></a>
+                </Link>
                 <div className="content_login_register">
                     <h1>Welcome to Art Auction</h1>
                     <p>login to enjoy our services</p>
             
-                    <button className="close" onClick={() => { login ? toggleLogin() : toggleSignup() }}></button>
                     
                     <div className="buttons">
                         <button className="login" onClick={() => toggleLogin()}>Login</button>
@@ -31,6 +34,7 @@ const login = () => {
                     </div>
 
                     <div className="forms">
+                    <button className="close" onClick={() => { login ? toggleLogin() : toggleSignup() }}></button>
                         <Login login={login}/>
                         <Signup signup={signup}/>
                     </div>
@@ -75,6 +79,10 @@ const login = () => {
                     margin: 80px 0;
                 }
 
+                .forms {
+                    position: relative;
+                }
+
                 .buttons {
                     display: grid;
                     justify-items: center;
@@ -93,6 +101,9 @@ const login = () => {
                 }
 
                 .close {
+                    position: absolute;
+                    top: -5px;
+                    left: -30px;
                     height: 30px;
                     width: 30px;
                     background-image: url("/img/icons/arrow.svg");
@@ -104,10 +115,23 @@ const login = () => {
                     justify-self: left;
                     opacity: ${login || signup ? "1" : "0"};
                     transform: translateX(${login || signup ? "0px" : "-50px"});
-                    transition: opacity .5s, transform .5s;
+                    transition: opacity 1s .5s, transform 1s .5s;
                 }
 
-                .close:hover {
+                .return {
+                    position: absolute;
+                    top: 30px;
+                    left: 30px;
+                    height: 30px;
+                    width: 30px;
+                    background-image: url("/img/icons/arrow.svg");
+                    background-repeat: no-repeat;
+                    background-size: 70%;
+                    background-position: center center;
+                    background-color: unset;
+                }
+
+                .close:hover, .return:hover {
                     transform: scale(1.2);
                 }
 

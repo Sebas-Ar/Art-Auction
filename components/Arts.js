@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Arts = () => {
+const Arts = ({url, num}) => {
+    console.log(num)
     return (
         <div className="container">
-            <img src="/img/galery1.jpg" alt="galery1"/>
+            <img src={url} alt="galery1"/>
 
             <section className="description">
                 <p className="location">location</p>
