@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import {useRouter} from 'next/router'
 import axios from 'axios'
 
 const Login = ({login}) => {
+
+    const router = useRouter()
 
     const [data, setData] = useState({})
 
@@ -13,9 +16,13 @@ const Login = ({login}) => {
         e.preventDefault()
 
         if (data.type && data.email && data.password) {
-            const url = "login"
+            const url = "/api/login"
             const result = await axios.post(url, data)
-            console.log(result)
+            console.log(result.data)
+            if (result.data.status === 'ok') {
+                sessionStorage.setItem('token',result.data['id'])
+                router.replace('/profile')
+            }
         } else {
             alert('falta algun dato')
         }

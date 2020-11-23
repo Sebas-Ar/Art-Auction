@@ -36,7 +36,10 @@ const handler = async (req, res) => {
         } else {
 
             res.statusCode = 200
-            res.json({ name: 'John Doe' })
+            res.send({
+                status: 'error',
+                message: 'Contraseña Invalida'
+            })
 
         }
 

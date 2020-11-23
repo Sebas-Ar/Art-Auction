@@ -1,7 +1,6 @@
 import React from 'react'
-import UploadArts from './UploadArts'
 
-const BoxService = () => {
+const BoxService = ({children}) => {
     return (
         <div className="container">
             
@@ -10,7 +9,7 @@ const BoxService = () => {
 
                 <p>upload your arts</p>
 
-                <UploadArts />
+                {children}
 
             </section>
 

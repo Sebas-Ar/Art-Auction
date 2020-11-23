@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Swal from 'sweetalert2'
+import PopUp from './PopUp'
 
-const Arts = ({url, num}) => {
-    console.log(num)
+const Arts = ({url, num, Logged}) => {
+
+    const [popUp, setPopUp] = useState(false)
+    
+    const onClick = () => {
+        if (!Logged) {
+            Swal.fire({
+                position: 'center',
+                icon: 'info',
+                title: 'You must log in to participate in the purchase / auction',
+                showConfirmButton: true
+            })
+        } else {
+            console.log('press')
+            console.log(popUp)
+            setPopUp(true)
+        }
+    } 
+    
     return (
         <div className="container">
             <img src={url} alt="galery1"/>
@@ -11,8 +30,9 @@ const Arts = ({url, num}) => {
                 <h3>title</h3>
                 <h4>Artist Name</h4>
                 <p className="date">Date</p>
-                <button>Buy</button>
+                <button onClick={() => onClick()}>Buy</button>
             </section>
+            <PopUp setPopUp={setPopUp} popUp={popUp}/>
 
             <style jsx>{`
                 

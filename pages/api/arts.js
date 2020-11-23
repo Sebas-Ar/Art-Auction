@@ -1,17 +1,26 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import withMiddleware from '../../middlewares/withMiddleware'
-import bcrypt from "bcryptjs"
 import {ObjectId} from 'mongodb';
 
 const handler = async (req, res) => {
 
     if (req.method === 'GET') {
 
+      if (req.query.id_artist) {
 
-      const art = await req.db.collection('arts').find({}).toArray()
-  
-      res.statusCode = 200
-      res.json({ message: art })
+        const art = await req.db.collection('arts').find({id_artist: req.query.id_artist}).toArray()
+        
+        res.statusCode = 200
+        res.json({ message: art })
+
+      } else {
+
+        const art = await req.db.collection('arts').find({}).toArray()
+    
+        res.statusCode = 200
+        res.json({ message: art })
+      }
+
 
 
     } else if (req.method === 'POST') {

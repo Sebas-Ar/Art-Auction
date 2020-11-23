@@ -18,6 +18,7 @@
     "next-session": "^3.3.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-images-uploader": "^1.2.0-rc1"
+    "react-images-uploader": "^1.2.0-rc1",
+    "sweetalert2": "^10.10.1"
   }
 }
